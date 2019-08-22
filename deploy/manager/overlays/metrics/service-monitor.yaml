@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    control-plane: controller-manager
+    controller-tools.k8s.io: "1.0"
+  name: controller-manager-metrics
+  namespace: system
+spec:
+  endpoints:
+  - honorLabels: true
+    port: metrics
+  jobLabel: "$(METRIC_SERVICE_NAME)"

@@ -1,0 +1,14 @@
+commonLabels:
+- path: spec/selector/matchLabels
+  create: true
+  kind: ServiceMonitor
+
+nameReferences:
+- kind: Service
+  version: v1
+  fieldSpecs:
+  - path: spec/jobLabel
+    kind: ServiceMonitor
+varReference:
+  - path: spec/jobLabel
+    kind: ServiceMonitor
